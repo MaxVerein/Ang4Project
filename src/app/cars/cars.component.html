@@ -1,0 +1,27 @@
+
+<input type="text" class="form-control" [(ngModel)] = "carName" >
+
+<button [disabled] = "!canAddCars" class="btn btn-primary" (click)="addCar()">Добавить машину</button>
+<!--<p *ngIf="!addCarsStatus">Машина не добавлена</p>
+<p *ngIf="addCarsStatus">Машина добавлена!</p>-->
+<p *ngIf="!addCarsStatus; else successStatus">Машина не добавлена</p>
+<ng-template #successStatus>
+  <p>Машина добавлена!</p>
+</ng-template>
+<hr>
+<app-car *ngFor="let car of cars"></app-car>
+<hr>
+<ul>
+  <li *ngFor="let item of items; let idx = index">
+    <span [ngStyle] = "{backgroundColor: (idx + 1) % 2 === 0 ? 'red': 'green', color: 'white'}"
+    [ngClass] = "{'big-text': setBigText(item.name)}">
+      <b>{{idx + 1}}</b>  - <i>{{item.name | uppercase}}</i></span>
+  </li>
+</ul>
+<!--<input type="text" class="form-control" (keyup)="onKeyUp($event)" >
+
+<input type="text" class="form-control" #myInp (keyup.enter)="onKeyUp2(myInp.value)" >
+
+<input type="text" class="form-control" [(ngModel)] = "inputText" >
+
+<p>{{ inputText }}</p>-->
