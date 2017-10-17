@@ -1,7 +1,4 @@
-
-<input type="text" class="form-control" [(ngModel)] = "carName" >
-
-<button [disabled] = "!canAddCars" class="btn btn-primary" (click)="addCar()">Добавить машину</button>
+<app-add-car (onAddCar)="updateCarList($event)"></app-add-car>
 <!--<p *ngIf="!addCarsStatus">Машина не добавлена</p>
 <p *ngIf="addCarsStatus">Машина добавлена!</p>-->
 <p *ngIf="!addCarsStatus; else successStatus">Машина не добавлена</p>
@@ -9,7 +6,7 @@
   <p>Машина добавлена!</p>
 </ng-template>
 <hr>
-<app-car *ngFor="let car of cars"></app-car>
+<app-car *ngFor="let car of cars2" [carItem] = "car"></app-car>
 <hr>
 <ul>
   <li *ngFor="let item of items; let idx = index">
@@ -19,9 +16,5 @@
   </li>
 </ul>
 <!--<input type="text" class="form-control" (keyup)="onKeyUp($event)" >
-
 <input type="text" class="form-control" #myInp (keyup.enter)="onKeyUp2(myInp.value)" >
-
 <input type="text" class="form-control" [(ngModel)] = "inputText" >
-
-<p>{{ inputText }}</p>-->

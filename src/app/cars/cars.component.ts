@@ -6,14 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
-
   canAddCars = false;
-  addCarsStatus = false;
   inputText = '';
-  carName = '';
-  cars = ['Ford', 'Audi', 'BMW'];
+  // cars = ['Ford', 'Audi', 'BMW'];
   items = [{id: 3, name: 'item 1'}, {id: 6, name: 'item 2'}, {id: 9, name: 'item 3'}, {id: 9, name: 'item 232323'}];
 
+  cars2: [{name: String, year: number}] = [{
+    name: 'Ford',
+    year: 2017
+  }, {
+    name: 'Mazda',
+    year: 2017
+  }, {
+    name: 'Audi',
+    year: 2017
+  }, {
+    name: 'BMW',
+    year: 2017
+  }];
+
+  updateCarList(car: {name: String, year: number}) {
+    this.cars2.push(car);
+  }
   constructor() {
     setTimeout(() => {
       this.canAddCars = true;
@@ -21,12 +35,6 @@ export class CarsComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  addCar() {
-    this.addCarsStatus = true;
-    this.cars.push(this.carName);
-    this.carName = '';
   }
 
  /* onKeyUp(event: Event) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-car',
@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
+/*carName = 'Ford';
+  carYear = 2017;*/
 
-  carName = 'Ford';
-  carYear = 2017;
+  @Input () carItem: {name: String, year: number};
+  // @Input ('carItem') car: {name: String, year: number};
+  // private carItem = false;
 
-  getName() {
+/*  getName() {
     return this.carName;
-  }
+  }*/
   constructor() { }
 
   ngOnInit() {
