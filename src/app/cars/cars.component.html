@@ -1,3 +1,5 @@
+<p>Форма добавления машины</p>
+<hr>
 <app-add-car (onAddCar)="updateCarList($event)"></app-add-car>
 <!--<p *ngIf="!addCarsStatus">Машина не добавлена</p>
 <p *ngIf="addCarsStatus">Машина добавлена!</p>-->
@@ -6,7 +8,11 @@
   <p>Машина добавлена!</p>
 </ng-template>
 <hr>
-<app-car *ngFor="let car of cars2" [carItem] = "car"></app-car>
+<app-car *ngFor="let car of cars2" [carItem] = "car">
+  <h4 #carHeading class="list-group-item-heading">Название - {{car.name}}</h4>
+  <p class="list-group-item-text">Год - {{car.year}}.</p>
+  <!--<div class="alert alert-info">Эта машина продана</div>-->
+</app-car>
 <hr>
 <ul>
   <li *ngFor="let item of items; let idx = index">
@@ -17,4 +23,4 @@
 </ul>
 <!--<input type="text" class="form-control" (keyup)="onKeyUp($event)" >
 <input type="text" class="form-control" #myInp (keyup.enter)="onKeyUp2(myInp.value)" >
-<input type="text" class="form-control" [(ngModel)] = "inputText" >
+<input type="text" class="form-control" [(ngModel)] = "inputText" >-->
